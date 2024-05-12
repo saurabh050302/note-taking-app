@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+
+<body class="overflow-hidden">
+
+    <div class="main w-full min-h-[100vh] text-white bg-zinc-800">
+        <div class="form w-full px-10 py-4">
+            <div class="text-2xl">Edit Task</div>
+            <form action="/edit" method="post">
+                <input type="text" value="<%= file %>" name="prev" class="hidden">
+                <input type="text" value="<%= file %>" name="new"
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md outline-none hover:scale-[1.01] duration-200">
+                <textarea id="taskDetails" cols="0" rows="8" name="details"
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md outline-none resize-none hover:scale-[1.01] duration-200">
+                    <%= details %>
+                </textarea>
+                <input type="submit" value="Save Task"
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md hover:bg-zinc-500 hover:cursor-pointer duration-200">
+            </form>
+        </div>
+
+    </div>
+</body>
+
+<script src="/javascripts/script.js"></script>
+
+</html>

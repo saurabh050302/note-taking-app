@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+
+<body class="overflow-hidden">
+
+    <div class="main w-full min-h-[100vh] text-white bg-zinc-800">
+        <div class="form w-full px-10 py-4">
+            <div class="text-2xl">New Task</div>
+            <form action="/create" method="post">
+                <input type="text" placeholder="Task Name..." name="title" required
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md outline-none hover:scale-[1.01] duration-200">
+                <textarea id="taskDetails" cols="30" rows="8" placeholder="Task Details..." name="details"
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md outline-none resize-none hover:scale-[1.01] duration-200"></textarea>
+                <input type="submit" value="Create Task"
+                    class="block w-full p-2 my-2 bg-zinc-700 rounded-md hover:bg-zinc-500 hover:cursor-pointer duration-200">
+            </form>
+        </div>
+
+        <div class="tasks w-full px-10">
+            <div class="text-2xl">Previous Tasks</div>
+            <div class="w-full my-2 flex justify-start items-center gap-2 flex-wrap">
+
+                <% if (files.length>0) { %>
+                    <% files.forEach((file)=>{ %>
+                        <div class="task w-64 p-2 bg-zinc-700 rounded-lg hover:scale-[1.01] duration-200">
+                            <div class="w-full text-xl overflow-hidden">
+                                <%= file.split(".txt")[0] %>
+                            </div>
+                            <a href="/files/<%= file %>" class="w-full text-xs text-blue-400">
+                                Click here to read
+                            </a>
+                        </div>
+                        <% })} else { %>
+                            <div class="text-zinc-600 ">NO TASKS YET</div>
+                            <% } %>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/javascripts/script.js"></script>
+
+</html>
